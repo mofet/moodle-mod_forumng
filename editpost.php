@@ -230,7 +230,7 @@ try {
     $PAGE->set_context($forum->get_context());
     $PAGE->set_cm($cm, $course);
     $PAGE->set_url(new moodle_url('/mod/forumng/editpost.php', $pageparams));
-    $PAGE->set_pagelayout($iframe ? 'embedded' : 'base');
+    $PAGE->set_pagelayout($iframe ? 'embedded' : 'standard');
     if ($iframe) {
         $PAGE->add_body_class('forumng-iframe');
     }

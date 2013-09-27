@@ -80,7 +80,7 @@ if ($feedtype == mod_forumng::FEEDTYPE_ALL_POSTS) {
 // Display header
 $url = new moodle_url('/mod/forumng/discuss.php', $pageparams);
 $pagename = shorten_text(s($discussion->get_subject()));
-$PAGE->set_pagelayout('base');
+$PAGE->set_pagelayout('standard');
 $out = $forum->init_page($url, $pagename);
 print $out->header();
 
