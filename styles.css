@@ -281,6 +281,7 @@ form.forumng-flag div {
 .forumng-replies {
     margin-left: 40px;
 }
+.dir-rtl .forumng-replies {margin-right: 40px;margin-left: auto;}
 
 h2.accesshide {
     margin: 0 0 5px 40px;
@@ -330,6 +331,8 @@ h2.forumng-author {
     float:left;
     width:35px;
 }
+.dir-rtl .forumng-pic {float:right;}
+
 .forumng-subject,
 .forumng-info,
 .forumng-summary,
@@ -338,14 +341,28 @@ h2.forumng-author {
     padding-left:0.5em;
 }
 
+.dir-rtl .forumng-subject,
+.dir-rtl .forumng-info,
+.dir-rtl .forumng-summary,
+.dir-rtl .forumng-deleted-info {
+    margin-right:35px;
+    padding-right:0.5em;
+    margin-left:0;
+    padding-left:0;
+}
+
 .forumng-info {
     position: relative;
     padding-right: 16px;
 }
+.dir-rtl .forumng-info { padding-left: 16px; padding-right: 0;}
+
 .forumng-info .forumng-flag {
     position: absolute;
     right: -0.5em;
 }
+.dir-rtl .forumng-info .forumng-flag {left: -0.5em; right:auto}
+
 
 .forumng-deleted .forumng-pic,
 .forumng-deselected .forumng-pic{
@@ -398,10 +415,19 @@ h3.forumng-subject {
     padding-left:0.5em;
     padding-top:0.5em;
 }
+.dir-rtl .forumng-postmain {
+    margin-right:35px;
+    padding-right:0.5em;
+    margin-left:0;
+    padding-left:0;
+}
+
 .forumng-postfooter {
     margin:0.5em 0 0;
     text-align:right;
 }
+.dir-rtl .forumng-postfooter { text-align:left; }
+
 /* Hide buttons if copied into message */
 .forumng-message .forumng-postfooter, .forumng-message .forumng-commands,
 .forumng-message .forumng-expandcontainer {
@@ -424,6 +450,8 @@ ul.forumng-commands li {
     padding:0;
     position: relative;
 }
+.dir-rtl ul.forumng-commands li {margin: 0;}
+
 ul.forumng-commands li {
     font-size: 0.85em;
 }
