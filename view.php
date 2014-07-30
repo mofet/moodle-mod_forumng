@@ -101,7 +101,18 @@ if (file_exists($CFG->dirroot . '/local/externaldashboard/external_dashboard.php
 print $out->container_end();
 
 // Log request
-$forum->log('view');
+//$forum->log('view');
+$forumng = $DB->get_record("forumng", array("id" => $cm->instance));
+$params = array(
+    'context' => context_module::instance($cm->id),
+    'objectid' => $forumng->id
+);
+$event = \mod_forumng\event\course_module_viewed::create($params);
+$event->add_record_snapshot('course_modules', $cm);
+$event->add_record_snapshot('course', $course);
+$event->add_record_snapshot('forumng', $forumng);
+$event->trigger();
+
 
 // Display footer
 print $out->footer($course);

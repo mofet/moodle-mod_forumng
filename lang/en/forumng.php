@@ -867,3 +867,19 @@ $string['editedforumpost'] = 'Your post has been edited';
 
 $string['postedasmoderator'] = 'Posted as moderator';
 $string['postedasmoderator_help'] = 'Search for posts that have been identified as being created by a moderator';
+
+$string['eventcoursesearched'] = 'Course searched';
+$string['eventdiscussioncreated'] = 'Discussion created';
+$string['eventdiscussionupdated'] = 'Discussion updated';
+$string['eventdiscussiondeleted'] = 'Discussion deleted';
+$string['eventdiscussionmoved'] = 'Discussion moved';
+$string['eventdiscussionviewed'] = 'Discussion viewed';
+$string['eventuserreportviewed'] = 'User report viewed';
+$string['eventpostcreated'] = 'Post created';
+$string['eventpostdeleted'] = 'Post deleted';
+$string['eventpostupdated'] = 'Post updated';
+$string['eventreadtrackingdisabled'] = 'Read tracking disabled';
+$string['eventreadtrackingenabled'] = 'Read tracking enabled';
+$string['eventsubscribersviewed'] = 'Subscribers viewed';
+$string['eventsubscriptioncreated'] = 'Subscription created';
+$string['eventsubscriptiondeleted'] = 'Subscription deleted';

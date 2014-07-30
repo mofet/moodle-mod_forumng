@@ -1611,13 +1611,37 @@ ORDER BY
      *   is just the discussion id again)
      */
     public function log($action, $replaceinfo = '') {
+        global $DB;
+
         $info = 'd' . $this->discussionfields->id;
         if ($replaceinfo !== '') {
             $info = $replaceinfo;
         }
-        add_to_log($this->get_forum()->get_course()->id, 'forumng',
-            $action, $this->get_log_url(), $info,
-            $this->get_forum()->get_course_module_id());
+//        add_to_log($this->get_forum()->get_course()->id, 'forumng',
+//            $action, $this->get_log_url(), $info,
+//            $this->get_forum()->get_course_module_id());
+
+        $params = array(
+            'context' => context_module::instance($this->get_forum()->get_course_module_id()),
+            'objectid' => $this->discussionfields->id,
+            'other' => array('info' => $info)
+        );
+        $discussion = $DB->get_record('forumng_discussions', array('id' => $this->get_id()), '*', MUST_EXIST);
+        $forumng = $DB->get_record('forumng', array('id' => $this->get_forum()->get_id()), '*', MUST_EXIST);
+        switch ($action) {
+            case 'view discussion':
+                $event = \mod_forumng\event\discussion_viewed::create($params);
+                $event->add_record_snapshot('forumng_discussions', $discussion);
+                $event->add_record_snapshot('forumng', $forumng);
+                break;
+            case 'forward discussion':
+                $event = \mod_forumng\event\discussion_forwarded::create($params);
+                $event->add_record_snapshot('forumng_discussions', $discussion);
+                $event->add_record_snapshot('forumng', $forumng);
+                break;
+        }
+
+        $event->trigger();
     }
 
     /**
